@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import { Button } from '@mantine/core';
 import {auth} from '../firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import SignInComponent from '../components/sign-in';
@@ -8,7 +6,7 @@ const Home = () => {
   // Destructure user, loading, and error out of the hook.
   const [user, loading, error] = useAuthState(auth);
   // console.log the current user and loading status
-  console.log('Loading:', loading, '|', 'Current user:', user);
+  // console.log('Loading:', loading, '|', 'Current user:', user);
 
 
   return (
@@ -30,7 +28,6 @@ const Home = () => {
       {user && (
         <>
           <h1>You logged in as {user.displayName}</h1>
-          <div style={{ flexDirection: 'row', display: 'flex' }}></div>
         </>
       )}
     </div>
