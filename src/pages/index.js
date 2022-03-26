@@ -9,16 +9,18 @@ const Home = () => {
   // console.log the current user and loading status
   // console.log('Loading:', loading, '|', 'Current user:', user);
 
-  const query = 'vegetarian';
+  const healthQuery = ['vegetarian'];
+  const foodQuery = ['celery'];
 
   //API URL
-  const API_URL = `https://api.edamam.com/search?q=${query}&app_id=37a2ad96&app_key=9be81d361261c971e127ad0982138d5f&from=0&to=10`;
+  const apiRequest = `https://api.edamam.com/api/recipes/v2?type=public&q=${foodQuery}
+    &app_id=37a2ad96&app_key=9be81d361261c971e127ad0982138d5f&ingr=3-5&imageSize=SMALL&random=false&field=uri&field=label&field=image&field=url&field=ingredients&health=${healthQuery}`;
 
   useEffect(() => {
-    fetch(API_URL)
+    fetch(apiRequest)
       .then((response) => response.json())
       .then((data) => console.log('data', data));
-  }, [API_URL]);
+  }, [apiRequest]);
 
   return (
     <div
