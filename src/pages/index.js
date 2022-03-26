@@ -1,6 +1,7 @@
-import {auth} from '../firebase/firebase';
+import { auth } from '../firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import SignInComponent from '../components/sign-in';
+import { useEffect } from 'react';
 
 const Home = () => {
   // Destructure user, loading, and error out of the hook.
@@ -8,6 +9,20 @@ const Home = () => {
   // console.log the current user and loading status
   // console.log('Loading:', loading, '|', 'Current user:', user);
 
+  const query = 'vegetarian';
+
+  //API URL
+  const API_URL = `https://api.edamam.com/search?q=${query}&app_id=37a2ad96&app_key=9be81d361261c971e127ad0982138d5f&from=0&to=10`;
+
+  const fetchRecipe = async () => {
+    await fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => console.log("data", data));
+  };
+
+  useEffect(() => {
+    fetchRecipe();
+  }, []);
 
   return (
     <div
@@ -32,6 +47,6 @@ const Home = () => {
       )}
     </div>
   );
-}
+};
 
 export default Home;
