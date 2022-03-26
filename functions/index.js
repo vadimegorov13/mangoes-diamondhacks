@@ -4,8 +4,13 @@ admin.initializeApp();
 const db = admin.firestore();
 
 // Create a document for the user when user creates an account
-exports.createUserDocument = functions.auth.user().onCreate((user) => {
+exports.createUserDocuments = functions.auth.user().onCreate((user) => {
+  const history = [];
+  const favorite = [];
+
   db.collection('users')
     .doc(user.uid)
     .set(JSON.parse(JSON.stringify(user)));
+  db.collection('history').doc(user.uid).set(history);
+  db.collection('favorite').doc(user.uid).set(favorite);
 });

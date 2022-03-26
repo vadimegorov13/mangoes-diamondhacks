@@ -2,6 +2,8 @@ import { auth } from '../firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import SignInComponent from '../components/sign-in';
 import { useEffect } from 'react';
+import { signOut } from 'firebase/auth';
+import { Button } from '@mantine/core';
 
 const Home = () => {
   // Destructure user, loading, and error out of the hook.
@@ -22,6 +24,10 @@ const Home = () => {
       .then((data) => console.log('data', data));
   }, [apiRequest]);
 
+  const logout = () => {
+    signOut(auth);
+  };
+
   return (
     <div
       style={{
@@ -41,6 +47,7 @@ const Home = () => {
       {user && (
         <>
           <h1>You logged in as {user.displayName}</h1>
+          <Button onClick={logout}>logout</Button>
         </>
       )}
     </div>
