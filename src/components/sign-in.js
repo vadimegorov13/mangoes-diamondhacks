@@ -5,8 +5,8 @@ import {auth} from "../firebase/firebase"
 
 // Configure FirebaseUI.
 const uiConfig = {
-  // Redirect to / after sign in is successful.
   signInSuccessUrl: '/',
+  signInFlow: 'popup',
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.GithubAuthProvider.PROVIDER_ID,
