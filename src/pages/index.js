@@ -14,15 +14,11 @@ const Home = () => {
   //API URL
   const API_URL = `https://api.edamam.com/search?q=${query}&app_id=37a2ad96&app_key=9be81d361261c971e127ad0982138d5f&from=0&to=10`;
 
-  const fetchRecipe = async () => {
-    await fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => console.log("data", data));
-  };
-
   useEffect(() => {
-    fetchRecipe();
-  }, []);
+    fetch(API_URL)
+      .then((response) => response.json())
+      .then((data) => console.log('data', data));
+  }, [API_URL]);
 
   return (
     <div
