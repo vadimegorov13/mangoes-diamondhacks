@@ -1,43 +1,35 @@
-import { Link } from 'react-router-dom';
-import { createStyles, Card, Image, Text } from '@mantine/core';
+import { Card, Title, Text, Divider, Image, Button, Box } from '@mantine/core';
 
-
-const useStyles = createStyles((theme) => ({
-  cardStyle: {
-    maxWidth: "30rem",
-    width: "1rem",
-  },
-}));
-
-const CardComponent = () => {
-    const classes = useStyles()
-
-    var query = ['peanut-free'];
-    const apiRequest = 'https://api.edamam.com/api/recipes/v2?type=public&q=' + query +'&app_id=37a2ad96&app_key=9be81d361261c971e127ad0982138d5f&ingr=3-5&cuisineType=American&imageSize=SMALL&random=false&field=uri&field=label&field=image&field=url'
-    console.log(apiRequest);
-
-
+const CardComponent = ({ recipe }) => {
+  const ingr = recipe.ingredientLines;
   return (
-    <Card
-      shadow="sm"
-      p="xl"
-      component="a"
-      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      target="_blank"
-    >
+    <Card shadow='sm' p='xl' component='a' target='_blank' m='lg'>
       <Card.Section>
-        <Image src="unsplash.png" height={160} alt="No way!" />
+        <div style={{ width: 240, marginLeft: 'auto', marginRight: 'auto' }}>
+          <Image radius='md' src={recipe.image} alt='food' mt='lg' />
+        </div>
       </Card.Section>
 
-      <Text weight={500} size="lg">
-        Recipe Name
-      </Text>
+      <Title weight={500} size='md' m='lg' color='pink'>
+        {recipe.label}
+      </Title>
 
-      <Text size="sm">
-        Recipe Description slkdfjlska;jflkdfj
+      <Divider />
+      <Text weight={'bold'} m='lg'>
+        Ingredients:
       </Text>
+      <Text>
+        <ul>
+          {ingr.map((ing) => (
+            <li key={ing}>{ing}</li>
+          ))}
+        </ul>
+      </Text>
+      <Box align='center'>
+        <Button>Open</Button>
+      </Box>
     </Card>
   );
-}
+};
 
 export default CardComponent;

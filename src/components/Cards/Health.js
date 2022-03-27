@@ -18,13 +18,19 @@ const Health = ({userId, health, healthParameters}) => {
 
   const handleChange = (event) => {
     setChecked(event.currentTarget.checked);
-
     let newParams = [];
     if (healthParameters !== undefined) {
       newParams = healthParameters;
     }
 
-    newParams.push(health.parameter);
+    if (!newParams.includes(health.parameter)) {
+      newParams.push(health.parameter);
+      console.log('add');
+    } else {
+      newParams.pop(health.parameter);
+      console.log('remove');
+    }
+
     updateHealth(userId, newParams);
   };
 

@@ -18,13 +18,19 @@ const Diet = ({ userId, diet, dietParameters }) => {
 
   const handleChange = (event) => {
     setChecked(event.currentTarget.checked);
-
     let newParams = [];
     if (dietParameters !== undefined) {
       newParams = dietParameters;
     }
 
-    newParams.push(diet.parameter);
+    if (!newParams.includes(diet.parameter)) {
+      newParams.push(diet.parameter);
+      console.log('add');
+    } else {
+      newParams.pop(diet.parameter);
+      console.log('remove');
+    }
+
     updateDiet(userId, newParams);
   };
 

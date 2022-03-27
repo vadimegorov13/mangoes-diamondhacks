@@ -4,11 +4,11 @@ import Phone from '../images/phone.svg';
 import Layout from '../components/Layout/Layout';
 import SignInComponent from '../components/sign-in';
 import { auth } from '../firebase/firebase';
-// import apiConfig from '../hooks/apiConfig'
 import Preferences from '../components/Lists/Preferences';
 import Dislikes from '../components/Lists/Dislikes';
 import Health from '../components/Lists/Health';
 import Diet from '../components/Lists/Diet';
+import { useRouter } from 'next/router';
 
 const useStyles = createStyles((theme) => ({
   grid: {
@@ -20,22 +20,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const Home = () => {
+  const router = useRouter()
   const classes = useStyles();
   const [user, loading] = useAuthState(auth);
 
-
-  // const healthQuery = ['vegetarian'];
-  // const foodQuery = ['celery'];
-  // const excludedQuery = ['apple cider'];
-
-  //API URL
-  // const apiRequest = `https://api.edamam.com/api/recipes/v2?type=public&q=${foodQuery}&excluded=${excludedQuery}&health=${healthQuery}&app_id=${apiConfig.app_id}&app_key=${apiConfig.app_key}&ingr=3-5&imageSize=SMALL&random=false&field=uri&field=label&field=image&field=url&field=ingredients`;
-
-  // useEffect(() => {
-  //   fetch(apiRequest)
-  //     .then((response) => response.json())
-  //     .then((data) => console.log('data', data));
-  // }, [apiRequest]);
+  const handleRouter = () => {
+    router.push('/recipes');
+  }
 
   let body = null;
 
@@ -70,6 +61,7 @@ const Home = () => {
             variant='gradient'
             gradient={{ from: 'grape', to: 'pink', deg: 35 }}
             size='lg'
+            onClick={handleRouter}
           >
             Generate Recipes
           </Button>
