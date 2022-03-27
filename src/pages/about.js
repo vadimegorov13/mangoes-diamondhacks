@@ -1,13 +1,13 @@
 import { Text } from '@mantine/core';
-import { Container } from '@mantine/core';
+import Layout from '../components/Layout/Layout';
 
 const About = () => {
   return (
-    <Container size='xs' p='lg'>
-      <Text align="center" size='xl' color={"cyan"}>
+    <Layout>
+      <Text align='center' size='xl'>
         About Page
       </Text>
-    </Container>
+    </Layout>
   );
 };
 

@@ -7,8 +7,6 @@ export default class _Document extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
 
-    // Add your app specific logic here
-
     return {
       ...initialProps,
       styles: (
