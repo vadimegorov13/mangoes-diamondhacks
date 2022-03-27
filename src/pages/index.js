@@ -59,8 +59,8 @@ const Home = () => {
             { maxWidth: 600, cols: 1, spacing: 'sm' },
           ]}
         >
-          <Preferences userId={user.uid}/>
-          <Dislikes />
+          <Preferences userId={user.uid} />
+          <Dislikes userId={user.uid} />
           <Health />
           <Diet />
         </SimpleGrid>

@@ -4,7 +4,6 @@ import 'firebase/compat/auth';
 import {auth} from "../firebase/firebase"
 import { Card, Title, createStyles, Avatar } from '@mantine/core';
 import { Lock } from 'tabler-icons-react';
-import phone from '../../images/phone.svg';
 
 const useStyles = createStyles((theme) => ({
   cardStyle: {
@@ -27,7 +26,6 @@ const SignInComponent = () => {
 
   return (
     <div style={{ width: 340, margin: 'auto' }}>
-      <img src={phone}/>
       <Card shadow='sm' className={classes.cardStyle}>
         <div align='center'>
           <Avatar color='blue' radius='lg' size='lg'>
