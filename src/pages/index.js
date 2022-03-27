@@ -1,20 +1,14 @@
-import { auth } from '../firebase/firebase';
+import { Box, Button, createStyles, SimpleGrid, Text } from '@mantine/core';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import SignInComponent from '../components/sign-in';
-import Layout from '../components/Layout/Layout';
-import {
-  createStyles,
-  Text,
-  SimpleGrid,
-  Paper,
-  Title,
-  Box,
-  ScrollArea,
-  Button,
-  Divider,
-} from '@mantine/core';
-import { Plus } from 'tabler-icons-react';
 import Phone from '../../images/phone.svg';
+import Layout from '../components/Layout/Layout';
+import SignInComponent from '../components/sign-in';
+import { auth } from '../firebase/firebase';
+// import apiConfig from '../hooks/apiConfig'
+import Preferences from '../components/Lists/Preferences';
+import Dislikes from '../components/Lists/Dislikes';
+import Health from '../components/Lists/Health';
+import Diet from '../components/Lists/Diet';
 
 const useStyles = createStyles((theme) => ({
   grid: {
@@ -34,7 +28,7 @@ const Home = () => {
   // const excludedQuery = ['apple cider'];
 
   //API URL
-  // const apiRequest = `https://api.edamam.com/api/recipes/v2?type=public&q=${foodQuery}&excluded=${excludedQuery}&health=${healthQuery}&app_id=37a2ad96&app_key=9be81d361261c971e127ad0982138d5f&ingr=3-5&imageSize=SMALL&random=false&field=uri&field=label&field=image&field=url&field=ingredients`;
+  // const apiRequest = `https://api.edamam.com/api/recipes/v2?type=public&q=${foodQuery}&excluded=${excludedQuery}&health=${healthQuery}&app_id=${apiConfig.app_id}&app_key=${apiConfig.app_key}&ingr=3-5&imageSize=SMALL&random=false&field=uri&field=label&field=image&field=url&field=ingredients`;
 
   // useEffect(() => {
   //   fetch(apiRequest)
@@ -55,47 +49,20 @@ const Home = () => {
   } else {
     body = (
       <Box className={classes.grid}>
-        <Phone/>
+        <Phone />
         <SimpleGrid
-          cols={3}
+          cols={4}
           spacing='lg'
           breakpoints={[
-            { maxWidth: 980, cols: 3, spacing: 'md' },
-            { maxWidth: 755, cols: 2, spacing: 'sm' },
+            { maxWidth: 1200, cols: 4, spacing: 'lg' },
+            { maxWidth: 980, cols: 2, spacing: 'md' },
             { maxWidth: 600, cols: 1, spacing: 'sm' },
           ]}
         >
-          <Paper shadow='xl' radius='md' p='md' withBorder>
-            <Title order={3}>Preferences</Title>
-            <Divider my='sm' />
-            <ScrollArea style={{ height: 300 }} type='always'>
-            </ScrollArea>
-            <Box align='center'>
-              <Button color='pink'>
-                Add Item <Plus />
-              </Button>
-            </Box>
-          </Paper>
-          <Paper shadow='xl' radius='md' p='md' withBorder>
-            <Title order={3}>Dislikes</Title>
-            <Divider my='sm' />
-            <ScrollArea style={{ height: 300 }} type='always'></ScrollArea>
-            <Box align='center'>
-              <Button color='pink'>
-                Add Item <Plus />
-              </Button>
-            </Box>
-          </Paper>
-          <Paper shadow='xl' radius='md' p='md' withBorder>
-            <Title order={3}>Allergies/Health/Diet</Title>
-            <Divider my='sm' />
-            <ScrollArea style={{ height: 300 }} type='always'></ScrollArea>
-            <Box align='center'>
-              <Button color='pink'>
-                Add Item <Plus />{' '}
-              </Button>
-            </Box>
-          </Paper>
+          <Preferences userId={user.uid}/>
+          <Dislikes />
+          <Health />
+          <Diet />
         </SimpleGrid>
         <Box align='center' my={'2rem'}>
           <Button
