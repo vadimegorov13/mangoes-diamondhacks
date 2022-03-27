@@ -56,16 +56,16 @@ const loggedInData = [
     href: '/about',
   },
   {
-    icon: <History size={16} />,
-    color: 'violet',
-    label: 'Favorite',
-    href: '/history',
-  },
-  {
     icon: <Star size={16} />,
     color: 'grape',
-    label: 'History',
+    label: 'Favorite',
     href: '/favorite',
+  },
+  {
+    icon: <History size={16} />,
+    color: 'violet',
+    label: 'History',
+    href: '/history',
   },
 ];
 
