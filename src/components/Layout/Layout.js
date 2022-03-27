@@ -17,12 +17,11 @@ const useStyles = createStyles((theme) => ({
   },
   appShell: {
     display: 'flex',
-    height: '100vh',
-    width: '100vw',
+    height: 'full',
+    width: 'full',
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    gridGap: 8,
     background:
       'linear-gradient(180deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)',
   },
@@ -63,7 +62,7 @@ const Layout = ({ children }) => {
         </Navbar>
       }
     >
-      <Container size='sm' px='md'>
+      <Container size='md' px='md'>
         {children}
       </Container>
     </AppShell>
