@@ -34,6 +34,7 @@ export const useUpdateHooks = () => {
             ingredients: fieldValueRef.arrayRemove(ingredient),
             updatedAt: Date.now(),
           });
+          console.log('remove')
       } catch (error) {
         console.log("Something went wrong, here's an error:", error);
       }
@@ -104,6 +105,7 @@ export const useUpdateHooks = () => {
           diet: fields,
           updatedAt: Date.now(),
         });
+        console.log('update')
       } catch (error) {
         console.log("Something went wrong, here's an error:", error);
       }

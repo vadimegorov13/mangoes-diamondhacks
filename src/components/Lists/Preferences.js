@@ -11,9 +11,11 @@ import { Plus } from 'tabler-icons-react';
 import { useEffect, useState } from 'react';
 import Form from '../Forms/Preferences';
 import { useGetHooks } from '../../hooks/useGetHooks';
+import PreferencesCard from '../Cards/Preferences'
 
 const Preferences = ({ userId }) => {
   const [opened, setOpened] = useState(false);
+  const [update, setUpdate] = useState(false);
   
   const { getIncluded } = useGetHooks();
   const [ingredients, setIngredients] = useState([]);
@@ -22,22 +24,33 @@ const Preferences = ({ userId }) => {
     if (userId) {
       getIncluded(userId, setIngredients);
     }
-  }, [userId, getIncluded]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId, update]);
 
   const handleOpened = () => {
     setOpened(!opened);
   };
+
+  const handleUpdate = () => {
+    setUpdate(!update);
+  }
 
   return (
     <Paper shadow='xl' radius='md' p='md' withBorder>
       <Title order={3}>Preferences</Title>
       <Divider my='sm' />
       <ScrollArea style={{ height: 300 }} type='always'>
-        <ul>
+        <>
           {ingredients.map((ingredient) => (
-            <li key={ingredient}>{ingredient}</li>
+            <Paper key={ingredient}>
+              <PreferencesCard
+                userId={userId}
+                ingredient={ingredient}
+                handleUpdate={handleUpdate}
+              />
+            </Paper>
           ))}
-        </ul>
+        </>
       </ScrollArea>
       <Box align='center'>
         <Button color='pink' onClick={handleOpened}>
@@ -49,7 +62,11 @@ const Preferences = ({ userId }) => {
         onClose={handleOpened}
         title={<Title mb={8}>Add Ingredient</Title>}
       >
-        <Form userId={userId} handleOpened={handleOpened} />
+        <Form
+          userId={userId}
+          handleOpened={handleOpened}
+          handleUpdate={handleUpdate}
+        />
       </Modal>
     </Paper>
   );
