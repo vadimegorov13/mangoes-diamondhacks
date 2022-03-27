@@ -1,7 +1,7 @@
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import {auth} from "../firebase/firebase"
+import { auth } from '../firebase/firebase';
 import { Card, Title, createStyles, Avatar } from '@mantine/core';
 import { Lock } from 'tabler-icons-react';
 import FoodFix from '../images/FoodFix.png';
@@ -9,7 +9,7 @@ import FoodFix from '../images/FoodFix.png';
 const useStyles = createStyles((theme) => ({
   cardStyle: {
     maxWidth: '30rem',
-    width: '1rem'
+    width: '1rem',
   },
 }));
 
@@ -23,11 +23,10 @@ const uiConfig = {
 };
 
 const SignInComponent = () => {
-  const classes = useStyles()
+  const classes = useStyles();
 
   return (
     <div style={{ width: 340, margin: 'auto' }}>
-      <img src={FoodFix} />
       <Card shadow='sm' className={classes.cardStyle}>
         <div align='center'>
           <Avatar color='blue' radius='lg' size='lg'>
@@ -44,6 +43,6 @@ const SignInComponent = () => {
       </Card>
     </div>
   );
-}
+};
 
 export default SignInComponent;

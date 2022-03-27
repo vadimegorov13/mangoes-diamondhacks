@@ -3,7 +3,6 @@ import Layout from '../components/Layout/Layout';
 import { auth } from '../firebase/firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useRouter } from 'next/router';
-import CardComponent from '../components/Card';
 
 const History = () => {
   const [user, loading] = useAuthState(auth);
@@ -29,7 +28,7 @@ const History = () => {
 
   return (
     <Layout>
-      <CardComponent></CardComponent>
+      {body}
     </Layout>
   );
 };

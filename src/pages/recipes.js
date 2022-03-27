@@ -73,11 +73,11 @@ const Recipes = () => {
 
   return (
     <Layout>
-      <Title align='center' order={2} m="lg">
+      <Title align='center' order={2} m='lg'>
         Recipies for you!
       </Title>
       <SimpleGrid
-        cols={4}
+        cols={2}
         spacing='lg'
         breakpoints={[
           { maxWidth: 1200, cols: 2, spacing: 'lg' },
@@ -87,7 +87,7 @@ const Recipes = () => {
       >
         {recipes.map((recipe) => (
           <Paper key={recipe.recipe.uri}>
-            <CardComponent recipe={recipe.recipe}/>
+            <CardComponent recipe={recipe.recipe} />
           </Paper>
         ))}
       </SimpleGrid>
