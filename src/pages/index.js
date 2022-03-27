@@ -1,6 +1,6 @@
 import { Box, Button, createStyles, SimpleGrid, Text } from '@mantine/core';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import Phone from '../../images/phone.svg';
+import Phone from '../images/phone.svg';
 import Layout from '../components/Layout/Layout';
 import SignInComponent from '../components/sign-in';
 import { auth } from '../firebase/firebase';

@@ -77,8 +77,7 @@ const HeaderMain = ({ user, opened, setOpened }) => {
                 <ThemeIcon color='pink' variant='light'>
                   <ListDetails />
                 </ThemeIcon>
-
-                <Title order={2}>Mangoes</Title>
+                <Title order={2}>FoodFix</Title>
               </Group>
             </UnstyledButton>
           </Link>

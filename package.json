@@ -21,6 +21,7 @@
     "@mantine/rte": "^4.0.8",
     "@mantine/spotlight": "^4.0.8",
     "@svgr/webpack": "^6.2.1",
+    "animate.css": "^4.1.1",
     "dayjs": "^1.11.0",
     "firebase": "^9.6.10",
     "firebase-functions": "^3.19.0",
