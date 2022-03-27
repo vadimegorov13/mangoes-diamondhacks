@@ -11,10 +11,10 @@ const Recipes = () => {
   const [user, loading] = useAuthState(auth);
   const { getHealth, getDiet, getExcluded, getIncluded } = useGetHooks();
 
-  const [health, setHealth] = useState(['alcohol-free']);
-  const [diet, SetDiet] = useState(['high-fiber', 'low-carb']);
-  const [excluded, setExcluded] = useState(['milk']);
-  const [included, setIncluded] = useState(['egg', 'apple']);
+  const [health, setHealth] = useState([]);
+  const [diet, SetDiet] = useState([]);
+  const [excluded, setExcluded] = useState([]);
+  const [included, setIncluded] = useState([]);
 
   const [apiRequest, setRequest] = useState('');
 
@@ -51,23 +51,51 @@ const Recipes = () => {
       healthString += '&health=' + h;
     });
 
-    const newApiRequest =
-      'https://api.edamam.com/api/recipes/v2?type=public&q=' +
-      included +
-      '&excluded=' +
-      excluded +
-      healthString +
-      dietString +
+    const first = 'https://api.edamam.com/api/recipes/v2?type=public';
+    const second = '&q=' + included;
+    const third = '&excluded=' + excluded;
+    const fourth =
       '&app_id=' +
       apiConfig.app_id +
       '&app_key=' +
       apiConfig.app_key +
       '&imageSize=SMALL';
+
+    let newApiRequest = first;
+
+    if (included.length > 0) {
+      newApiRequest += second;
+    }
+    if (excluded.length > 0) {
+      newApiRequest += third;
+    }
+    if (diet) {
+      newApiRequest += dietString;
+    }
+    if (health) {
+      newApiRequest += healthString;
+    }
+    newApiRequest += fourth;
+    // let newApiRequest =
+    //   'https://api.edamam.com/api/recipes/v2?type=public&q=' +
+    //   included +
+    //   '&excluded=' +
+    //   excluded +
+    //   healthString +
+    //   dietString +
+    //   '&app_id=' +
+    //   apiConfig.app_id +
+    //   '&app_key=' +
+    //   apiConfig.app_key +
+    //   '&imageSize=SMALL';
     // ('&ingr=3-5&imageSize=SMALL&random=false&field=uri&field=label&field=image&field=url&field=ingredients');
 
     fetch(newApiRequest)
       .then((response) => response.json())
-      .then((data) => {setRecipes(data.hits); console.log(data.hits)});
+      .then((data) => {
+        setRecipes(data.hits);
+        console.log(data.hits);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [included]);
 
