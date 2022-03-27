@@ -14,6 +14,7 @@ import {
   Divider,
 } from '@mantine/core';
 import { Plus } from 'tabler-icons-react';
+import Phone from '../../images/phone.svg';
 
 const useStyles = createStyles((theme) => ({
   grid: {
@@ -54,6 +55,7 @@ const Home = () => {
   } else {
     body = (
       <Box className={classes.grid}>
+        <Phone/>
         <SimpleGrid
           cols={3}
           spacing='lg'

@@ -20,6 +20,8 @@
     "@mantine/prism": "^4.0.8",
     "@mantine/rte": "^4.0.8",
     "@mantine/spotlight": "^4.0.8",
+    "@svgr/webpack": "^6.2.1",
+    "babel-plugin-inline-react-svg": "^2.0.1",
     "dayjs": "^1.11.0",
     "firebase": "^9.6.10",
     "firebase-functions": "^3.19.0",
@@ -28,6 +30,7 @@
     "react-dom": "17.0.2",
     "react-firebase-hooks": "^5.0.3",
     "react-firebaseui": "^6.0.0",
+    "react-router-dom": "^6.2.2",
     "tabler-icons-react": "^1.41.0"
   },
   "devDependencies": {

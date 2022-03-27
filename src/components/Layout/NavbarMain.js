@@ -1,34 +1,34 @@
-import { UnstyledButton, Group, Text, ThemeIcon } from '@mantine/core';
-import { InfoSquare, SmartHome, History, Star } from 'tabler-icons-react';
-import Link from 'next/link';
+import { UnstyledButton, Group, Text, ThemeIcon } from "@mantine/core";
+import { InfoSquare, SmartHome, History, Star } from "tabler-icons-react";
+import Link from "next/link";
 
 export const NavbarMainLink = ({ icon, color, label, href }) => {
   return (
     <Link href={href} passHref={true}>
       <UnstyledButton
         sx={(theme) => ({
-          display: 'block',
-          width: '100%',
+          display: "block",
+          width: "100%",
           padding: theme.spacing.xs,
           borderRadius: theme.radius.sm,
-          backgroundColor: href === '/logout' ? '#eeaeca' : 'inherit',
+          backgroundColor: href === "/logout" ? "#eeaeca" : "inherit",
           color:
-            theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
+            theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
 
-          '&:hover': {
+          "&:hover": {
             backgroundColor:
-              theme.colorScheme === 'dark'
+              theme.colorScheme === "dark"
                 ? theme.colors.dark[6]
                 : theme.colors.gray[0],
           },
         })}
       >
         <Group>
-          <ThemeIcon color={color} variant='light'>
+          <ThemeIcon color={color} variant="light">
             {icon}
           </ThemeIcon>
 
-          <Text size='lg' weight='500' color='black'>
+          <Text size="lg" weight="500" color="black">
             {label}
           </Text>
         </Group>
@@ -38,34 +38,34 @@ export const NavbarMainLink = ({ icon, color, label, href }) => {
 };
 
 const data = [
-  { icon: <SmartHome size={16} />, color: 'blue', label: 'Home', href: '/' },
+  { icon: <SmartHome size={16} />, color: "blue", label: "Home", href: "/" },
   {
     icon: <InfoSquare size={16} />,
-    color: 'teal',
-    label: 'About',
-    href: '/about',
+    color: "teal",
+    label: "About",
+    href: "/about",
   },
 ];
 
 const loggedInData = [
-  { icon: <SmartHome size={16} />, color: 'blue', label: 'Home', href: '/' },
+  { icon: <SmartHome size={16} />, color: "blue", label: "Home", href: "/" },
   {
     icon: <InfoSquare size={16} />,
-    color: 'teal',
-    label: 'About',
-    href: '/about',
+    color: "teal",
+    label: "About",
+    href: "/about",
   },
   {
     icon: <Star size={16} />,
-    color: 'grape',
-    label: 'Favorite',
-    href: '/favorite',
+    color: "grape",
+    label: "Favorite",
+    href: "/favorite",
   },
   {
     icon: <History size={16} />,
-    color: 'violet',
-    label: 'History',
-    href: '/history',
+    color: "violet",
+    label: "History",
+    href: "/history",
   },
 ];
 
