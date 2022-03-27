@@ -23,6 +23,7 @@ const Home = () => {
   const classes = useStyles();
   const [user, loading] = useAuthState(auth);
 
+
   // const healthQuery = ['vegetarian'];
   // const foodQuery = ['celery'];
   // const excludedQuery = ['apple cider'];
