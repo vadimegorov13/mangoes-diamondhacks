@@ -11,6 +11,7 @@ export const useGetHooks = () => {
           .then((response) => {
             const data = response.data();
             setIngredients(data.ingredients);
+            console.log('get includeIngredients', data.ingredients);
           });
       } catch (error) {
         console.log("Something went wrong, here's an error:", error);
@@ -24,12 +25,13 @@ export const useGetHooks = () => {
     if (userId) {
       try {
         await db
-          .collection('excludedIngredients')
+          .collection('excludeIngredients')
           .doc(userId)
           .get()
           .then((response) => {
             const data = response.data();
             setIngredients(data.ingredients);
+            console.log('get excludeIngredients', data.ingredients);
           });
       } catch (error) {
         console.log("Something went wrong, here's an error:", error);
@@ -67,8 +69,9 @@ export const useGetHooks = () => {
           .get()
           .then((response) => {
             const data = response.data();
-            setDiet(data.health);
+            setDiet(data.diet);
           });
+          
       } catch (error) {
         console.log("Something went wrong, here's an error:", error);
       }

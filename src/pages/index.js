@@ -62,8 +62,8 @@ const Home = () => {
         >
           <Preferences userId={user.uid} />
           <Dislikes userId={user.uid} />
-          <Health />
-          <Diet />
+          <Health userId={user.uid} />
+          <Diet userId={user.uid} />
         </SimpleGrid>
         <Box align='center' my={'2rem'}>
           <Button

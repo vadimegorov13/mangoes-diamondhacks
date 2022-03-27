@@ -5,13 +5,24 @@ import {
   ScrollArea,
   Button,
   Divider,
-  Checkbox,
 } from '@mantine/core';
 import { Plus } from 'tabler-icons-react';
-import {diets} from '../../utils/diet'
-import DietCard from '../Cards/Diet'
+import { diets } from '../../utils/diet';
+import DietCard from '../Cards/Diet';
+import { useGetHooks } from '../../hooks/useGetHooks';
+import { useState, useEffect } from 'react';
 
-const Diet = () => {
+const Diet = ({ userId }) => {
+  const [dietParameters, setDietParameters] = useState([]);
+  const { getDiet } = useGetHooks();
+
+  useEffect(() => {
+    if (userId) {
+      getDiet(userId, setDietParameters);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
+
   return (
     <Paper shadow='xl' radius='md' p='md' withBorder>
       <Title order={3}>Diet</Title>
@@ -20,16 +31,15 @@ const Diet = () => {
         <>
           {diets.map((diet) => (
             <Paper key={diet.parameter}>
-              <DietCard diet={diet}/>
+              <DietCard
+                userId={userId}
+                diet={diet}
+                dietParameters={dietParameters}
+              />
             </Paper>
           ))}
         </>
       </ScrollArea>
-      <Box align='center'>
-        <Button color='pink'>
-          Add Item <Plus />{' '}
-        </Button>
-      </Box>
     </Paper>
   );
 };

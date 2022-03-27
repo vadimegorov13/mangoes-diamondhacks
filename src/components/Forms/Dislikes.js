@@ -3,7 +3,7 @@ import { useForm } from '@mantine/form';
 import { Plus } from 'tabler-icons-react';
 import { useUpdateHooks } from '../../hooks/useUpdateHooks';
 
-const Dislikes = ({ userId, handleOpened }) => {
+const Dislikes = ({ userId, handleOpened, handleUpdate }) => {
   const { addToExclude } = useUpdateHooks();
 
   const form = useForm({
@@ -18,6 +18,7 @@ const Dislikes = ({ userId, handleOpened }) => {
         onSubmit={form.onSubmit(async (values) => {
           await addToExclude(userId, values.ingredient);
           handleOpened();
+          handleUpdate();
         })}
       >
         <Grid>
