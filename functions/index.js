@@ -39,6 +39,12 @@ exports.createUserDocuments = functions.auth.user().onCreate(async (user) => {
     ...date,
   };
 
+  // Declare health
+  const diet = {
+    diet: [],
+    ...date,
+  };
+
   await db.collection('users').doc(userId).set(userData);
   await db.collection('history').doc(userId).set(handfData);
   await db.collection('favorite').doc(userId).set(handfData);
@@ -46,4 +52,5 @@ exports.createUserDocuments = functions.auth.user().onCreate(async (user) => {
   await db.collection('includeIngredients').doc(userId).set(ingredients);
   await db.collection('excludeIngredients').doc(userId).set(ingredients);
   await db.collection('health').doc(userId).set(health);
+  await db.collection('diet').doc(userId).set(diet);
 });
