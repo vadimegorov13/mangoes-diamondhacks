@@ -67,13 +67,13 @@ const Recipes = () => {
 
     fetch(newApiRequest)
       .then((response) => response.json())
-      .then((data) => setRecipes(data.hits));
+      .then((data) => {setRecipes(data.hits); console.log(data.hits)});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [included]);
 
   return (
     <Layout>
-      <Title align='center' order={2}>
+      <Title align='center' order={2} m="lg">
         Recipies for you!
       </Title>
       <SimpleGrid
@@ -87,7 +87,7 @@ const Recipes = () => {
       >
         {recipes.map((recipe) => (
           <Paper key={recipe.recipe.uri}>
-            <CardComponent recipe={recipe.recipe} />
+            <CardComponent recipe={recipe.recipe}/>
           </Paper>
         ))}
       </SimpleGrid>

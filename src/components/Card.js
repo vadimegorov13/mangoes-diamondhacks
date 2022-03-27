@@ -1,4 +1,13 @@
-import { Card, Title, Text, Divider, Image, Button, Box } from '@mantine/core';
+import {
+  Card,
+  Title,
+  Text,
+  Divider,
+  Image,
+  Button,
+  Box,
+  Anchor,
+} from '@mantine/core';
 
 const CardComponent = ({ recipe }) => {
   const ingr = recipe.ingredientLines;
@@ -14,8 +23,24 @@ const CardComponent = ({ recipe }) => {
         {recipe.label}
       </Title>
 
+      <Text m='lg'>
+        <strong>Meal Type: </strong>
+        {recipe.mealType}
+      </Text>
+      <Text m='lg'>
+        <strong>Diet Labels: </strong>
+        {recipe.dietLabels.map((d) => (
+          <span key={d}>{d} </span>
+        ))}
+      </Text>
+      <Text m='lg'>
+        <strong>Health Labels: </strong>
+        {recipe.healthLabels.map((d) => (
+          <span key={d}>{d} </span>
+        ))}
+      </Text>
       <Divider />
-      <Text weight={'bold'} m='lg'>
+      <Text weight={'bold'} mt='lg' mr='lg' ml='lg'>
         Ingredients:
       </Text>
       <Text>
@@ -25,8 +50,12 @@ const CardComponent = ({ recipe }) => {
           ))}
         </ul>
       </Text>
-      <Box align='center'>
-        <Button>Open</Button>
+      <Divider />
+
+      <Box align='center' mt="lg">
+        <Anchor href={recipe.url}>
+          <Button>Open</Button>
+        </Anchor>
       </Box>
     </Card>
   );
