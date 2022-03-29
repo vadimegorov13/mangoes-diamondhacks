@@ -28,7 +28,7 @@ Next, for FoodFix, we hope to implement a "Gallery" feature where users worldwid
 - edamam api
 
 ## Try it out!
-[FoodFix](foodfix-mangoes.vercel.app)
+[FoodFix](https://foodfix-mangoes.vercel.app)
 
 ## DevPost
 [FoodFix](https://devpost.com/software/food-fix)
