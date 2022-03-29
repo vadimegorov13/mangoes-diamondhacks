@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Inspiration
+This app was inspired by thousands of people who have allergies and diet restrictions globally. Especially as college students, we were interested in having easy-to-find and make recipes. But unfortunately, we haven't come across a platform where we can find recipes that only include the ingredients we have and simultaneously take care of our diet restrictions and allergies.
 
-## Getting Started
+## What it does
+FoodFix allows users to enter their allergies, diets, preferences and dislikes to generate a perfect recipe. Using this app, users can stay safe and healthy by finding recipes of their favorite ingredients that accommodate their allergies and diets.
 
-First, run the development server:
+## How we built it
+We built this app using React.js, JavaScript, Mantine, and Firebase. We also used edamame's API for recipe search.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Challenges we ran into
+Collaborating, so all of our git pushes were cohesive with our project goals, ensuring that everyone was up to date with updates on the code with time zone differences, and learning how to implement various components from Mantine. By communicating on discord, setting goals, and diligently searching for solutions through documentation and forums, we were able to complete our task.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Accomplishments that we're proud of
+We successfully implemented the idea that we thought of at the beginning of the hackathon, managed our time despite being from different time zones, and brainstormed solutions for issues.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## What we learned
+We all worked with technologies that we hadn't used before by looking over the documentation, online forums, and many testing.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## What's next for FoodFix
+Next, for FoodFix, we hope to implement a "Gallery" feature where users worldwide can share the recipes they've made using FoodFix recipes and inspire others to cook. We also hope to add an "add recipe" feature so users with unique diets and allergies can add their special recipes and share them. These features will encourage the community of people on FoodFix to keep cooking and eating healthy! We also would like to add "history" and "favorite" sections so users can look back on previous recipes they have generated.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Built With
+- React
+- Next.js
+- Firebase
+- JavaScript
+- Mantine
+- edamam api
 
-## Learn More
+## Try it out!
+[FoodFix](foodfix-mangoes.vercel.app)
 
-To learn more about Next.js, take a look at the following resources:
+## DevPost
+[FoodFix](https://devpost.com/software/food-fix)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Creators
+Team Name: Mangoes
+Team Members: 
+- Sumi Verma
+- Vadim Egorov
+- Mohd Arshad
