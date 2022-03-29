@@ -34,8 +34,6 @@ Next, for FoodFix, we hope to implement a "Gallery" feature where users worldwid
 [FoodFix](https://devpost.com/software/food-fix)
 
 ## Creators
-Team Name: Mangoes
-Team Members: 
 - Sumi Verma
 - Vadim Egorov
 - Mohd Arshad
